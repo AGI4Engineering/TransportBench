@@ -108,24 +108,21 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">Capabilities of Large Language Models in Control Engineering:
-A Benchmark Study on GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra</h1>
+          <h1 class="title is-2 publication-title">Benchmarking the Capabilities of Large Language Models in Transportation System Engineering: Accuracy, Consistency, and Reasoning Behaviors</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://darioushk1.github.io/">Darioush Kevian</a><sup>1</sup>,</span>
               <a href="https://www.usmanahmedsyed.com/">Usman Syed</a><sup>1</sup>,</span>
+              <a href="https://yfouyang.cee.illinois.edu/students/">Ethan Light</a><sup>1</sup>,</span>
               <a href="https://sites.google.com/view/guoxingang">Xingang Guo</a><sup>1</sup>,</span>
-              <a href="https://aaronhavens.github.io/">Aaron Havens</a><sup>1</sup>,</span>
-              <a href="https://ece.illinois.edu/about/directory/faculty/dullerud">Geir Dullerud</a><sup>1</sup>,</span>
-              <a href="https://seiler.engin.umich.edu/">Peter Seiler</a><sup>2</sup>,</span>
-              <a href="https://sites.google.com/view/lianhuiqin/home">Lianhui Qin</a><sup>3,4</sup>,</span>
+              <a href="https://www.huan-zhang.com/">Huan Zhang</a><sup>1</sup>,</span>
+              <a href="https://lianhui.ucsd.edu/">Lianhui Qin</a><sup>2,3</sup>,</span>
+              <a href="https://cee.illinois.edu/directory/profile/yfouyang">Yanfeng Ouyang</a><sup>1</sup>,</span>
               <a href="https://binhu7.github.io/">Bin Hu</a><sup>1</sup>,</span>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University of Illinois Urbana-Champaign</span>
-            <span class="author-block"><sup>2</sup>University of Michigan</span>
             <span class="author-block"><sup>3</sup>Allen Institute for AI</span>
             <span class="author-block"><sup>4</sup>University of California San Diego</span>
           </div>
@@ -142,25 +139,6 @@ A Benchmark Study on GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra</h1>
                   <span>Paper</span>
                 </a>
               </span>
-              <!-- ControlBench Link. -->
-              <span class="link-block">
-                <a href="https://github.com/AGI4Engineering/LLM4Control/tree/d733f44b4a38f5150947308ff38cc3341efffe5a/ControlBench"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>ControlBench</span>
-                </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/AGI4Engineering/LLM4Control/tree/d92b296fc2df61e8132caaace7c4f0babbd2896f/ControlBench-C"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>ControlBench-C</span>
-                  </a>
               <!-- Dataset Link. -->
               <span class="link-block">
                 <a href="https://github.com/AGI4Engineering/LLM4Control/tree/231dca59016bb5e5ee3730fc9a7efd71f6dc6be3/logs"
@@ -168,7 +146,7 @@ A Benchmark Study on GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra</h1>
                   <span class="icon">
                       <i class="far fa-images"></i>
                   </span>
-                  <span>Sampled LLM Responses</span>
+                  <span>TransportBench</span>
                   </a>
             </div>
 
@@ -188,14 +166,12 @@ A Benchmark Study on GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra</h1>
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           In this paper, we explore the capabilities of state-of-the-art large language models (LLMs) such as GPT-4, Claude 3 Opus, 
-            and Gemini 1.0 Ultra in solving undergraduate-level control problems. Controls provides an interesting case study for LLM 
-            reasoning due to its combination of mathematical theory and engineering design. We introduce ControlBench, a benchmark dataset 
-            tailored to reflect the breadth, depth, and complexity of classical control  design. We use this dataset to study and evaluate the 
-            problem-solving abilities of these LLMs in the context of control engineering. We present evaluations conducted by a panel of human experts, 
-            providing insights into the accuracy, reasoning, and explanatory prowess of LLMs in control engineering. Our  analysis reveals the strengths and 
-            limitations of each LLM in the context of classical control, and our results imply that Claude 3 Opus has become the state-of-the-art LLM for solving 
-            undergraduate control problems.  Our study serves as an initial step towards the broader goal of employing artificial general intelligence in control engineering. 
+          In this paper, we explore the capabilities of state-of-the-art large language models (LLMs) such as GPT-4, GPT-4o, Claude 3.5 Sonnet, Claude 3 Opus, Gemini 1.5 Pro, Llama 3, and Llama 3.1 in 
+            solving some selected undergraduate-level transportation engineering problems. We introduce TransportBench, a benchmark dataset that includes a sample of transportation engineering problems on 
+            a wide range of subjects in the context of planning, design, management, and control of transportation systems. This dataset is used by human experts to evaluate the capabilities of various commercial 
+            and open-sourced LLMs, especially their accuracy, consistency, and reasoning behaviors, in solving transportation engineering problems. Our comprehensive analysis uncovers the unique strengths and 
+            limitations of each LLM, e.g. our analysis shows the impressive accuracy and some unexpected inconsistent behaviors of Claude 3.5 Sonnet and Claude 3 Opus in solving TransportBench problems. Our study 
+            marks a thrilling first step toward harnessing artificial general intelligence for complex transportation challenges.
           </p>
         </div>
       </div>
@@ -208,9 +184,9 @@ A Benchmark Study on GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra</h1>
 <section class="section">
   <div class="container is-max-desktop">
     <div class="content">
-     <h3>ControlBench Dataset</h3>
-    <p>We introduce <strong>ControlBench</strong>, a benchmark dataset tailored to reflect the breadth, depth, and complexity of classical control design. The statistics of ControlBench 
-      for each sub-topic is summarzed as below.</p>
+     <h3>TransportBench Dataset</h3>
+    <p>We introduce <strong>TransportBench</strong>,  a collection of 140 undergraduate problems that span a broad spectrum of topics related to transport engineering. TransportBench consists of both the <strong>true or false</strong> problems and the general <strong>Q&A</strong>strong> problems. We
+summarize the statistics of our TransportBench dataset for each topic as below.</p>
       </div>
     <!-- Summary of the work -->
      <div class="content">
@@ -221,12 +197,10 @@ A Benchmark Study on GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra</h1>
     <!-- Explanation of the diagram -->
     <div class="content" style="margin-top: 20px;">
     <ul>
-        <li>ControlBench comprises 147 problems sourced from exercises in <a href="https://www.mhprofessional.com/schaum-s-outline-of-feedback-and-control-systems-3rd-edition-9780071829489-usa">Schaum’s outline of feedback and control systems</a>,
-          and problems gathered from undergraduate control classes at University of Michigan (EECS 460) and University of Illinois, Urbana-Champaign (ECE 486).</li>
-        <li>Both textual and visual elements are inclcuded in ControlBench to mirror the multifaceted nature of real-world applications.</li>
-        <li>We also introduced <strong>ControlBench-C</strong>, tansformed from ControlBench by reformulating 100 open-ended problems into multiple-choice questions for efficient evaluations.</li>
-      </ul>
-      <p> Here we show an example extracted from ControlBench and ControlBench-C
+        <li>TransportBench comprises 140 problems sourced from a junior-level introductory course CEE 310 - Transportation Engineering and a senior-level focused course CEE 418 - Public Transportation Systems.</li>
+        <li>Each problem is human crafted by the domain expert Prof. Yanfeng Ouyang.</li>
+    </ul>
+      <p> Here we show two representitive examples extracted from TransportBench
             <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
       <img src="./static/images/sample_example.png"
            style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
