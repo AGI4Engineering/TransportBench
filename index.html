@@ -192,7 +192,7 @@ summarize the statistics of our TransportBench dataset for each topic as below.<
      <div class="content">
     <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
       <img src="./static/images/dataset_overview.png"
-           style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+           style="width: 100%; max-width: 750px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
     </div>
     <!-- Explanation of the diagram -->
     <div class="content" style="margin-top: 20px;">
@@ -213,16 +213,24 @@ summarize the statistics of our TransportBench dataset for each topic as below.<
 <section class="section">
   <div class="container is-max-desktop">
     <div class="content">
-     <h3>Evaluations of Leading LLMs on ControlBench</h3>
-    <p>We assess the capabilities of GPT-4, Claude 3 Opus, and Gemini 1.0 Ultra on ControlBench using a zero-shot prompting followed by self-checking strategy, and examine the responses through human annotation. 
-      Below we present our zero-shot prompt and self-checking prompt.</p>
+     <h3>Evaluating Accuracy of Leading LLMs on TransportBench</h3>
+    <p>We evaluate the accuracy of leading LLMs such as GPT-4, GPT-4o, Claude 3 Opus, Claude 3.5 Sonnet, Gemini 1.5 Pro, Llama 3 (70B) and Llama 3.1 (405B) 
+      on TransportBench via zero-shot pormpting strategy through human expert annotation. Our main evaluation
+      metric is Accuracy (ACC), defined as the proportion of instances where the LLMs correctly solve the given problems. The results are reported as below.</p>
       </div>
     <!-- Summary of the work -->
      <div class="content">
     <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
-      <img src="./static/images/zero_prompt.png"
+      <img src="./static/images/table2.png"
            style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
     </div>
+      <div class="content has-text-justified">
+        <ul>
+          <li>Claude 3.5 Sonnet achieves the best ACC for most topics and the entire TransportBench dataset.</li>
+          <li>Gemini 1.5 Pro, GPT-4o, and Claude 3 Opus all demonstrate competitive performance.</li>
+          <li>The open-source model Llama 3.1 has reached the level of the commercial model GPT-4.</li>
+        </ul>
+       </div>
   </div>
 </div>
 </section>
@@ -233,18 +241,19 @@ summarize the statistics of our TransportBench dataset for each topic as below.<
   <div class="container is-max-desktop">
     <!-- Summary of the work -->
     <div class="content">
-      <h3>Evaluation Results</h3>
-      <p><strong>Evaluation Metrics</strong>: Accuracy (<strong>ACC</strong>) is defined as the proportion of instances where the LLMs correctly solve the given problems, while Self-Checked Accuracy (<strong>ACC-s</strong>) quantifies the instances in which LLMs 
-        successfully amend their answers after a self-review process. The best results for each metric are highlighted in bold.</p>
+      <h3>CEE 310 vs. CEE 418</h3>
+      <p>It is interesting to investigate the impact of problem difficulty levels. The problems of TransportBench sourced from two classes: CEE 310 and CEE 418.
+        CEE 310 is an introductory course that covers a very broad range of topics in transportation engineering, while CEE 418 is considered as a
+        more advanced and more focused follow-up course (whose prerequisite is CEE 310). Below we show the ACC of these two courses, respectively.</p>
       <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
-      <img src="./static/images/evaluations_whole.png"
+      <img src="./static/images/table3.png"
            style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
       </div>
       <div class="content has-text-justified">
         <ul>
-          <li>Claude 3 Opus emerges as the standout model, demonstrating superior performance in both ACC and ACC-s.</li>
-          <li>GPT-4 displays competitive accuracy in specific areas, such as Block Diagrams, Root-Locus Design, and System Sensitivity Measures, but does not match Claude 3 Opus in overall performance.</li>
-          <li>Gemini 1.0 Ultra ranks lower in general effectiveness.</li>
+          <li>All the LLMs have lower ACC on CEE 418, and higher ACC on CEE 310.</li>
+          <li>Claude 3.5 Sonnet significantly outperforms GPT-4, GPT-4o, Gemini 1.5 Pro, and Llama 3.1 on CEE 418, demonstrating its superior capabilities in handling
+more advanced topics in transportation engineering.</li>
         </ul>
        </div>
    </div>
@@ -256,17 +265,44 @@ summarize the statistics of our TransportBench dataset for each topic as below.<
   <div class="container is-max-desktop">
     <!-- Summary of the work -->
     <div class="content">
-      <h3>Failure Modes Analysis</h3>
-      <p>Despite their great potential, LLMs can fail in many different ways. The following figure categorizes the LLM failures into seven types, 
-        and highlight the proportions (%) for GPT-4 and Claude 3 Opus, respectively.</p>
+      <h3>Evaluating Consistency of LLMs on True and False Problems</h3>
+      <p><strong>Zero-shot consistency<\strong>: we test all the LLMs via five independent trials of each of the 73
+True or False problems in TransportBench, and report two metrics: (i) Mixed Response Rate (MRR) in
+the zero-shot setting, which is the percentage of the True or False problems that received mixed responses
+(non-identical answers) in any of the five trials; and (ii) aggregate ACC, which is the proportion of the
+trials where LLMs give the correct true or false label over the total 365 trials. The evaluation results can be found below. </p>
       <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
-      <img src="./static/images/error_type.png"
-           style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      <img src="./static/images/table4.png"
+           style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
       </div>
       <div class="content has-text-justified">
         <ul>
-          <li>The biggest bottleneck preventing GPT-4 to achieve better accuracy on ControlBench is its limited reasoning capabilities.</li>
-          <li>The performance of Claude 3 Opus can be further boosted by improving its calculation abilities or calling external tools.</li>
+          <li>Llama 3 achieves the lowest MRR. However, the aggregate ACC for Llama 3 is also the lowest. This means that Llama 3 has strong bias in 
+            answering TransportBench questions and consistently generate wrong answers.</li>
+          <li>Claude 3 Sonnet achieves the highest aggregate ACC while maintaining a very low MMR.</li>
+          <li>From the MMR values, we can see that most LLMs including GPT-4, GPT-4o, Claude 3 Opus, and Gemini 1.5 Pro are not very consistent in giving 
+            true/false labels in the zero-shot setting.</li>
+          <li>The aggregate ACC trend is quite consistent with the original ACC results in Table 3. Overall, it is fair to claim that LLMs have shown promise 
+            in solving transportation system problems. <\li>
+        </ul>
+       </div>
+            <p><strong>Consistency under self-checking prompts<\strong>: we examine whether LLMs will generate
+consistent answers and reasoning when they are prompted to double check their original answers. To this end, we 
+              introduce another metric: self-checking accuracy, which quantifies the instances in which LLMs give correct answers after the self-checking process. The 
+              second metric is the number of the True or False problems in which the
+LLMs flip the original correct answers to wrong ones. The number of incorrect flips can give a more
+direct illustration on the extent of the inconsistency in the self-checking setting. The evaluation results can be found as below.</p>
+      <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
+      <img src="./static/images/table5.png"
+           style="width: 100%; max-width: 1000px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+      </div>
+      <div class="content has-text-justified">
+        <ul>
+          <li>GPT-4o and GPT-4 are the only two models whose accuracy is benefited from the self-checking prompts.</li>
+          <li>Claude 3 Sonnet achieves the highest aggregate ACC while maintaining a very low MMR.</li>
+          <li>Given self-checking prompts, Claude 3.5 Sonnet is still more consistent than Claude 3 Opus,
+Gemini 1.5 Pro, Llama 3, and Llama 3.1.</li>
+          <li>Claude 3 Opus, Gemini 1.5 Pro, Llama 3, and Llama 3.1 all make many incorrect flips. <\li>
         </ul>
        </div>
    </div>
