@@ -305,7 +305,12 @@ same principles and reasoning across different inquiries. We have studied zero-s
       <h3>Consistency under self-checking prompt</h3>
       <p>The LLM literature reports that sometimes LLMs can correct their mistakes if given simple self-checking prompts, such as "carefully check your solutions". 
       We examine whether LLMs will generate consistent answers and reasoning when they are prompted to double check their original answers. 
-        We provide a complementary perspective on consistency of LLMs using two metrics. The first metric is self-checking accuracy (denoted as ACC-$\bar{s}$), which 
+        We provide a complementary perspective on consistency of LLMs using two metrics. The first metric is self-checking accuracy (denoted as ACC-<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mover>
+    <mi>s</mi>
+    <mo>&#x0305;</mo>
+  </mover>
+</math>), which 
         quantifies the instances in which LLMs give correct answers after the self-checking process. The second metric is the number of the True or False problems 
         in which the LLMs flip the original correct answers to wrong ones. For a consistent LLM, we ideally want ACC-<math xmlns="http://www.w3.org/1998/Math/MathML">
   <mover>
