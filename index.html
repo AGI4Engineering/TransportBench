@@ -259,7 +259,12 @@ summarize the statistics of our TransportBench dataset for each topic as below.<
       <p> We have studied how the problem type affects the LLM performance. The TransportBench consists of True or False problems and general Q&A problems. 
         Intuitively, True or False problems are easier than more general Q&A problems. We report the ACC of the seven evaluated LLMs for each problem type 
         in the above Table. The ACC results for True/False vs General Q&A shows: <\p>
-          
+            <div class="content has-text-justified">
+        <ul>
+          <li>Most LLMs have shown consistently lower ACC scores for general Q&A problems compared to True or False problems.</li>
+          <li>Claude 3.5 Sonnet achieves similar ACC for both general Q&A problems (71.6%) and True or False problems (72.6%).</li>
+        </ul>
+       </div> 
 
    </div>
   </div>
@@ -270,51 +275,55 @@ summarize the statistics of our TransportBench dataset for each topic as below.<
   <div class="container is-max-desktop">
     <!-- Summary of the work -->
     <div class="content">
-      <h3>Evaluating Consistency of LLMs on True and False Problems</h3>
-      <p>Zero-shot consistency: we test all the LLMs via five independent trials of each of the 73
-True or False problems in TransportBench, and report two metrics: (i) Mixed Response Rate (MRR) in
-the zero-shot setting, which is the percentage of the True or False problems that received mixed responses
-(non-identical answers) in any of the five trials; and (ii) aggregate ACC, which is the proportion of the
-trials where LLMs give the correct true or false label over the total 365 trials. The evaluation results can be found below. </p>
+      <h3>Zero-shot Consistency on True/False Problems</h3>
+      <p>Consistency refers to uniform, reliable, and logically coherent responses that maintain the
+same principles and reasoning across different inquiries. We have studied zero-shot consistency of LLMs 
+        on the True or False problem. In this setting, we independently test five trials of each problem in the zero-shot setting. 
+        We used two metrics to quantify the zero-shot consistency: (i) Mixed Response Rate (MRR), which is the percentage of the True 
+        or False problems that received mixed responses (non-identical answers) in any of the five trials; and (ii) aggregate ACC, which is 
+        the proportion of the trials where LLMs give the correct true or false label over the total 73 × 5 = 365 trials.</p>
       <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
       <img src="./static/images/table4.png"
            style="width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
       </div>
       <div class="content has-text-justified">
         <ul>
-          <li>Llama 3 achieves the lowest MRR. However, the aggregate ACC for Llama 3 is also the lowest. This means that Llama 3 has strong bias in 
-            answering TransportBench questions and consistently generate wrong answers.</li>
-          <li>Claude 3 Sonnet achieves the highest aggregate ACC while maintaining a very low MMR.</li>
-          <li>From the MMR values, we can see that most LLMs including GPT-4, GPT-4o, Claude 3 Opus, and Gemini 1.5 Pro are not very consistent in giving 
-            true/false labels in the zero-shot setting.</li>
-          <li>The aggregate ACC trend is quite consistent with the original ACC results in Table 3. Overall, it is fair to claim that LLMs have shown promise 
-            in solving transportation system problems. <\li>
+          <li>Llama 3 achieves the lowest MRR. However, the aggregate ACC for Llama 3 is also the lowest which suggests it has strong bias and consistently 
+            generate incorrect answers. Our study has shown Llama 3 to reports True for almost 90% of the total problem trials.</li>
+          <li>Claude 3 Sonnet achieves the highest aggregate ACC while maintaining a very low MRR making it the state-of-the art LLM 
+            in terms of zero-shot consistency for TransportBench. </li>
         </ul>
        </div>
-            <p>Consistency under self-checking prompts: we examine whether LLMs will generate
-consistent answers and reasoning when they are prompted to double check their original answers. To this end, we 
-              introduce another metric: self-checking accuracy, which quantifies the instances in which LLMs give correct answers after the self-checking process. The 
-              second metric is the number of the True or False problems in which the
-LLMs flip the original correct answers to wrong ones. The number of incorrect flips can give a more
-direct illustration on the extent of the inconsistency in the self-checking setting. The evaluation results can be found as below.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Summary of the work -->
+    <div class="content">
+      <h3>Consistency under self-checking prompt</h3>
+      <p>The LLM literature reports that sometimes LLMs can correct their mistakes if given simple self-checking prompts, such as "carefully check your solutions". 
+        We examine whether LLMs will generate consistent answers and reasoning when they are prompted to double check their original answers. 
+        We provide a complementary perspective on consistency of LLMs using two metrics. The first metric is self-checking accuracy (denoted as ACC-\bar{s}), which 
+        quantifies the instances in which LLMs give correct answers after the self-checking process. The second metric is the number of the True or False problems 
+        in which the LLMs flip the original correct answers to wrong ones. For a consistent LLM, we ideally want ACC-\bar{s} to be higher than ACC and the number 
+        of incorrect flips to be low.</p>
       <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
       <img src="./static/images/table5.png"
            style="width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
       </div>
       <div class="content has-text-justified">
         <ul>
-          <li>GPT-4o and GPT-4 are the only two models whose accuracy is benefited from the self-checking prompts.</li>
-          <li>Claude 3 Sonnet achieves the highest aggregate ACC while maintaining a very low MMR.</li>
-          <li>Given self-checking prompts, Claude 3.5 Sonnet is still more consistent than Claude 3 Opus,
-Gemini 1.5 Pro, Llama 3, and Llama 3.1.</li>
-          <li>Claude 3 Opus, Gemini 1.5 Pro, Llama 3, and Llama 3.1 all make many incorrect flips. <\li>
+          <li>The self-checking prompts proved useful for GPT-4o and GPT-4 to boost their accuracy. The number of incorrect flips for GPT-4 and GPT-4o is very low 
+            thus showing these models to be consistent. </li>
+          <li>Given self-checking prompts, Claude 3.5 Sonnet is still more consistent than Claude 3 Opus, Gemini 1.5 Pro, Llama 3, and Llama 3.1, but less consistent 
+            than GPT-4 and GPT-4o.</li>
         </ul>
        </div>
-   </div>
+    </div>
   </div>
-</section>
-
-  
+</section> 
   
 <section class="section">
   <div class="container is-max-desktop">
@@ -377,7 +386,7 @@ Gemini 1.5 Pro, Llama 3, and Llama 3.1.</li>
     <pre><code>@article{Usman2024TransportBench,
   author    = {Usman, Syed and Ethan, Light and Xingang, Guo and Huan, Zhang and Lianhui, Qin and Yanfeng, Ouyang and Bin, Hu},
   title     = {Benchmarking the Capabilities of Large Language Models in Transportation System Engineering: Accuracy, Consistency, and Reasoning Behaviors},
-  journal   = { },
+  journal   = {},
   year      = {2024},
 }</code></pre>
   </div>
