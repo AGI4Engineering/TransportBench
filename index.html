@@ -123,7 +123,6 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University of Illinois Urbana-Champaign</span>
-            <span class="author-block"><sup>2</sup>Allen Institute for AI</span>
             <span class="author-block"><sup>3</sup>University of California San Diego</span>
           </div>
 
@@ -257,6 +256,11 @@ summarize the statistics of our TransportBench dataset for each topic as below.<
             advanced topics in transportation engineering.</li>
         </ul>
        </div>
+      <p> We have studied how the problem type affects the LLM performance. The TransportBench consists of True or False problems and general Q&A problems. 
+        Intuitively, True or False problems are easier than more general Q&A problems. We report the ACC of the seven evaluated LLMs for each problem type 
+        in the above Table. The ACC results for True/False vs General Q&A shows: <\p>
+          
+
    </div>
   </div>
 </section>
@@ -267,14 +271,14 @@ summarize the statistics of our TransportBench dataset for each topic as below.<
     <!-- Summary of the work -->
     <div class="content">
       <h3>Evaluating Consistency of LLMs on True and False Problems</h3>
-      <p><strong>Zero-shot consistency<\strong>: we test all the LLMs via five independent trials of each of the 73
+      <p>Zero-shot consistency: we test all the LLMs via five independent trials of each of the 73
 True or False problems in TransportBench, and report two metrics: (i) Mixed Response Rate (MRR) in
 the zero-shot setting, which is the percentage of the True or False problems that received mixed responses
 (non-identical answers) in any of the five trials; and (ii) aggregate ACC, which is the proportion of the
 trials where LLMs give the correct true or false label over the total 365 trials. The evaluation results can be found below. </p>
       <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
       <img src="./static/images/table4.png"
-           style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+           style="width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
       </div>
       <div class="content has-text-justified">
         <ul>
@@ -287,7 +291,7 @@ trials where LLMs give the correct true or false label over the total 365 trials
             in solving transportation system problems. <\li>
         </ul>
        </div>
-            <p><strong>Consistency under self-checking prompts<\strong>: we examine whether LLMs will generate
+            <p>Consistency under self-checking prompts: we examine whether LLMs will generate
 consistent answers and reasoning when they are prompted to double check their original answers. To this end, we 
               introduce another metric: self-checking accuracy, which quantifies the instances in which LLMs give correct answers after the self-checking process. The 
               second metric is the number of the True or False problems in which the
@@ -295,7 +299,7 @@ LLMs flip the original correct answers to wrong ones. The number of incorrect fl
 direct illustration on the extent of the inconsistency in the self-checking setting. The evaluation results can be found as below.</p>
       <div style="text-align: center; margin-top: 20px;"> <!-- Center align the image container -->
       <img src="./static/images/table5.png"
-           style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
+           style="width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto;" <!-- Make the image responsive and centered -->
       </div>
       <div class="content has-text-justified">
         <ul>
